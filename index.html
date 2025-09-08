@@ -97,18 +97,22 @@
         const birthdayCard = document.getElementById("birthdayCard");
         const celebrationSound = document.getElementById("celebrationSound");
 
-        // Show message instantly
         birthdayCard.classList.add("show-message");
 
-        // Try to play sound immediately
+        // play sound right away
         celebrationSound.play().catch(() => {
-            // If blocked, wait for the first touch and then play
             document.body.addEventListener("touchstart", () => {
                 celebrationSound.play();
             }, { once: true });
         });
     }
+
+    // make button react instantly on phones
+    const btn = document.querySelector(".celebrate-btn");
+    btn.addEventListener("touchstart", showBirthdayMessage);
+    btn.addEventListener("click", showBirthdayMessage);
 </script>
+
 
 
 </body>
