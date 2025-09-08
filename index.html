@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <title>Birthday Message</title>
     <style>
         body {
@@ -10,14 +12,14 @@
             text-align: center;
             font-size: 16px;
             background-image: url(IMG-20250222-WA0217.jpg); /* Replace with your image URL */
-            background-size:auto;
+            background-size: cover; /* cover looks better for phones */
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll; /* fixed causes issues on mobile */
             height: 100vh;
             margin: 0;
         }
         .birthday-card {
-            background: rgba(255, 255, 255, 0.8); /* Added opacity for better text contrast */
+            background: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -26,10 +28,11 @@
             opacity: 0;
             transform: translateY(50px);
             transition: all 1s ease;
+            max-width: 90%; /* prevents card from overflowing screen */
         }
         .birthday-message {
             color: #1a16ee;
-            font-size: 44px;
+            font-size: 36px;
             font-weight: bold;
         }
         .show-message {
@@ -45,6 +48,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            margin-top: 20px;
         }
         .celebrate-btn:hover {
             background-color: #c2185b;
@@ -60,7 +64,18 @@
         .celebrate-btn:active {
             animation: bounce 0.5s;
         }
+    
+        /* 📱 Mobile-specific adjustments */
+        @media (max-width: 600px) {
+            .birthday-message {
+                font-size: 24px; /* smaller headline on phones */
+            }
+            body {
+                font-size: 14px;
+            }
+        }
     </style>
+    
 </head>
 <body>
 
