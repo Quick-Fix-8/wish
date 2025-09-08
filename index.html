@@ -26,7 +26,8 @@
       /* start hidden */
       opacity: 0;
       transform: translateY(30px);
-      transition: all 1.5s ease; /* 🎬 slow fade-in effect */
+      transition: all 1.5s ease;
+      display: inline-block;
     }
     .show-message {
       opacity: 1;
@@ -46,9 +47,14 @@
       border-radius: 5px;
       cursor: pointer;
       margin-top: 20px;
+      transition: all 0.8s ease; /* smooth move */
     }
     .celebrate-btn:hover {
       background-color: #c2185b;
+    }
+    /* after clicking, move button up slightly */
+    .btn-moved {
+      transform: translateY(-30px); /* move up small */
     }
     @media (max-width: 600px) {
       .birthday-message { font-size: 22px; }
@@ -75,9 +81,13 @@
     function showBirthdayMessage() {
       const birthdayCard = document.getElementById("birthdayCard");
       const celebrationSound = document.getElementById("celebrationSound");
+      const btn = document.getElementById("celebrateBtn");
 
       // trigger slow fade-in
       birthdayCard.classList.add("show-message");
+
+      // move the button upward a little
+      btn.classList.add("btn-moved");
 
       // play sound
       celebrationSound.play().catch(() => {
@@ -88,12 +98,9 @@
     }
 
     const btn = document.getElementById("celebrateBtn");
-
-    // make button super responsive
     btn.addEventListener("touchend", showBirthdayMessage, { passive: true });
     btn.addEventListener("click", showBirthdayMessage);
   </script>
 
 </body>
 </html>
-
