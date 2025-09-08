@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <title>Birthday Message</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             font-size: 16px;
-            background-image: url(IMG-20250222-WA0217.jpg); /* Replace with your image URL */
-            background-size: cover; /* cover looks better for phones */
+            background-image: url(IMG-20250222-WA0217.jpg); /* Make sure this image is in same folder */
+            background-size: cover; 
             background-position: center;
-            background-attachment: scroll; /* fixed causes issues on mobile */
+            background-attachment: scroll; /* fixed causes issues on phones */
             height: 100vh;
             margin: 0;
         }
@@ -27,8 +25,8 @@
             margin-top: 50px;
             opacity: 0;
             transform: translateY(50px);
-            transition: all 1s ease;
-            max-width: 90%; /* prevents card from overflowing screen */
+            transition: all 0.2s ease; /* ⚡ faster response */
+            max-width: 90%;
         }
         .birthday-message {
             color: #1a16ee;
@@ -47,7 +45,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
             margin-top: 20px;
         }
         .celebrate-btn:hover {
@@ -64,18 +62,17 @@
         .celebrate-btn:active {
             animation: bounce 0.5s;
         }
-    
-        /* 📱 Mobile-specific adjustments */
+
+        /* 📱 Mobile adjustments */
         @media (max-width: 600px) {
             .birthday-message {
-                font-size: 24px; /* smaller headline on phones */
+                font-size: 24px;
             }
             body {
                 font-size: 14px;
             }
         }
     </style>
-    
 </head>
 <body>
 
@@ -83,12 +80,12 @@
     <p class="birthday-message">🎉 Happy Birthday, Ordrine! 🎂</p>
     <p>Quick-fix-I.T-Solution wishes you the happiest of birthdays!</p>
     <p>May This Day Be🥰💙 The Beginning 🥰❤️💗Of Another Beautiful Year For You. 🎁🎈</p>
-    <P>May There💜🤍 Be Pleasant Surprises, 🥳🥳Loads Of Joy And Infinite🤓🥰 Happiness.</P>
+    <p>May There💜🤍 Be Pleasant Surprises, 🥳🥳Loads Of Joy And Infinite🤓🥰 Happiness.</p>
     <p>Wish You A Very Happy Birthday 🥰🙏🏻❤️ long life 🙏🏻.</p>
     <p>Web developed By Elorm.</p>
 </div>
 
-<button class="celebrate-btn" onclick="showBirthdayMessage()">Celebrate!</button>
+<button class="celebrate-btn">Celebrate!</button>
 
 <audio id="celebrationSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
 
@@ -99,7 +96,6 @@
 
         birthdayCard.classList.add("show-message");
 
-        // play sound right away
         celebrationSound.play().catch(() => {
             document.body.addEventListener("touchstart", () => {
                 celebrationSound.play();
@@ -107,14 +103,11 @@
         });
     }
 
-    // make button react instantly on phones
+    // Make button react instantly on phones
     const btn = document.querySelector(".celebrate-btn");
     btn.addEventListener("touchstart", showBirthdayMessage);
     btn.addEventListener("click", showBirthdayMessage);
 </script>
 
-
-
 </body>
 </html>
-        
