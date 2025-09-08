@@ -96,10 +96,20 @@
     function showBirthdayMessage() {
         const birthdayCard = document.getElementById("birthdayCard");
         const celebrationSound = document.getElementById("celebrationSound");
+
+        // Show message instantly
         birthdayCard.classList.add("show-message");
-        celebrationSound.play();
+
+        // Try to play sound immediately
+        celebrationSound.play().catch(() => {
+            // If blocked, wait for the first touch and then play
+            document.body.addEventListener("touchstart", () => {
+                celebrationSound.play();
+            }, { once: true });
+        });
     }
 </script>
+
 
 </body>
 </html>
