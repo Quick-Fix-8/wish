@@ -4,63 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Birthday Message</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      font-size: 16px;
-      background-image: url(IMG-20250222-WA0217.jpg);
-      background-size: cover;
-      background-position: center;
-      margin: 0;
-      height: 100vh;
-    }
-    .birthday-card {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      margin-top: 50px;
-      max-width: 90%;
-
-      /* start hidden */
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 1.5s ease;
-      display: inline-block;
-    }
-    .show-message {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .birthday-message {
-      color: #1a16ee;
-      font-size: 32px;
-      font-weight: bold;
-    }
-    .celebrate-btn {
-      background-color: #1a16ee;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: all 0.8s ease; /* smooth move */
-    }
-    .celebrate-btn:hover {
-      background-color: #c2185b;
-    }
-    /* after clicking, move button up slightly */
-    .btn-moved {
-      transform: translateY(-30px); /* move up small */
-    }
-    @media (max-width: 600px) {
-      .birthday-message { font-size: 22px; }
-      body { font-size: 14px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -71,36 +15,28 @@
     <p>May There💜🤍 Be Pleasant Surprises, 🥳🥳Loads Of Joy And Infinite🤓🥰 Happiness.</p>
     <p>Wish You A Very Happy Birthday 🥰🙏🏻❤️ long life 🙏🏻.</p>
     <p>Web developed By Elorm.</p>
+
+    <!-- 📸 Photo gallery -->
+    <div class="photo-gallery">
+      <img src="1627821939892.jpg" alt="Photo 1">
+      <img src="PhotoGrid_Plus_1705348826816.png" alt="Photo 2">
+      <img src="Snapchat-709639712.jpg" alt="Photo 3">
+      <img src="Snapchat-1223567257.jpg" alt="Photo 4">
+    </div>
   </div>
 
   <button class="celebrate-btn" id="celebrateBtn">Celebrate!</button>
 
+  <!-- reply box hidden until Celebrate -->
+  <div id="replySection">
+    <h3>💌 Send your reply:</h3>
+    <input type="text" id="replyInput" placeholder="Type your message...">
+    <button id="replyBtn" onclick="sendReply()">Send</button>
+  </div>
+
   <audio id="celebrationSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
 
-  <script>
-    function showBirthdayMessage() {
-      const birthdayCard = document.getElementById("birthdayCard");
-      const celebrationSound = document.getElementById("celebrationSound");
-      const btn = document.getElementById("celebrateBtn");
-
-      // trigger slow fade-in
-      birthdayCard.classList.add("show-message");
-
-      // move the button upward a little
-      btn.classList.add("btn-moved");
-
-      // play sound
-      celebrationSound.play().catch(() => {
-        document.body.addEventListener("touchstart", () => {
-          celebrationSound.play();
-        }, { once: true });
-      });
-    }
-
-    const btn = document.getElementById("celebrateBtn");
-    btn.addEventListener("touchend", showBirthdayMessage, { passive: true });
-    btn.addEventListener("click", showBirthdayMessage);
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
