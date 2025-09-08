@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 16px;
+    background-image: url(IMG-20250222-WA0217.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+  }
+  .birthday-card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    max-width: 90%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.5s ease;
+    display: inline-block;
+  }
+  .show-message {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .birthday-message {
+    color: #1a16ee;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .celebrate-btn {
+    background-color: #1a16ee;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.8s ease;
+  }
+  .celebrate-btn:hover {
+    background-color: #c2185b;
+  }
+  .btn-moved {
+    transform: translateY(-30px);
+  }
+  #replySection {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    display: none; /* hidden until Celebrate is clicked */
+    padding: 15px;
+    border-radius: 10px;
+  }
+  #replyInput {
+    padding: 8px;
+    width: 70%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  #replyBtn {
+    padding: 8px 15px;
+    margin-left: 5px;
+    background: #1a16ee;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #replyBtn:hover {
+    background: #c2185b;
+  }
+  .photo-gallery {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .photo-gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+background-color: #fff; /* optional behind empty space */
+
+    border-radius: 30px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    
+  }
+  .photo-gallery img:hover {
+    transform: scale(1.1);
+  }
+  @media (max-width: 600px) {
+    .birthday-message { font-size: 22px; }
+    body { font-size: 14px; }
+  }
+  
