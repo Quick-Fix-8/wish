@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 16px;
+            background-image: url(IMG-20250222-WA0217.jpg); /* Replace with your image URL */
+            background-size:auto;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0;
+        }
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.8); /* Added opacity for better text contrast */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin-top: 50px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+        .birthday-message {
+            color: #1a16ee;
+            font-size: 44px;
+            font-weight: bold;
+        }
+        .show-message {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .celebrate-btn {
+            background-color: #1a16ee;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .celebrate-btn:hover {
+            background-color: #c2185b;
+            transform: scale(1.1);
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-5px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(-3px); }
+            100% { transform: translateY(0); }
+        }
+        .celebrate-btn:active {
+            animation: bounce 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+<div class="birthday-card" id="birthdayCard">
+    <p class="birthday-message">🎉 Happy Birthday, Ordrine! 🎂</p>
+    <p>Quick-fix-I.T-Solution wishes you the happiest of birthdays!</p>
+    <p>May This Day Be🥰💙 The Beginning 🥰❤️💗Of Another Beautiful Year For You. 🎁🎈</p>
+    <P>May There💜🤍 Be Pleasant Surprises, 🥳🥳Loads Of Joy And Infinite🤓🥰 Happiness.</P>
+    <p>Wish You A Very Happy Birthday 🥰🙏🏻❤️ long life 🙏🏻.</p>
+    <p>Web developed By Elorm.</p>
+</div>
+
+<button class="celebrate-btn" onclick="showBirthdayMessage()">Celebrate!</button>
+
+<audio id="celebrationSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+
+<script>
+    function showBirthdayMessage() {
+        const birthdayCard = document.getElementById("birthdayCard");
+        const celebrationSound = document.getElementById("celebrationSound");
+        birthdayCard.classList.add("show-message");
+        celebrationSound.play();
+    }
+</script>
+
+</body>
+</html>
+        
